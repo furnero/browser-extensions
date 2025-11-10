@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "e621 Auto Favorite Downloader",
+  "version": "1.1.0",
+  "description": "Automatically downloads e621 posts when you favorite them",
+  "permissions": [
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://e621.net/*",
+    "https://static1.e621.net/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://e621.net/posts/*", "https://e621.net/post/show/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "48": "icon48.png",
+    "96": "icon96.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "e621-auto-downloader@yourextension.com"
+    }
+  }
+}
